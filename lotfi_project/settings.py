@@ -3,7 +3,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-temp-key'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["lotfizade.onrender.com", "127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
