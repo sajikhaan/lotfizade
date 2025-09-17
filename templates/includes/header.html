@@ -1,0 +1,15 @@
+{% load static %}
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/"><img src="{% static 'images/logo.png' %}" alt="تشریفات لطفی زاده"></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="{% url 'home' %}">خانه</a></li>
+        <li><a href="{% url 'services:list' %}">خدمات</a></li>
+        <li><a href="{% url 'gallery:list' %}">گالری</a></li>
+        <li><a href="{% url 'blog:list' %}">بلاگ</a></li>
+        <a href="{% url 'contact:contact' %}">تماس</a>
+      </ul>
+    </nav>
+  </div>
+</header>

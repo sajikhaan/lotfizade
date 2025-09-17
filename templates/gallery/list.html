@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}گالری - تشریفات لطفی زاده{% endblock %}
+
+{% block content %}
+<section class="bg-gray-50 py-20">
+  <div class="container mx-auto px-6 lg:px-20">
+    
+    <!-- عنوان صفحه -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+        📸 گالری تصاویر
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        نگاهی به لحظات خاص و خاطره‌انگیز مراسم‌های برگزار شده توسط تیم ما
+      </p>
+    </div>
+
+    <!-- تصاویر -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% if photos %}
+        {% for photo in photos %}
+          <a href="{{ photo.image.url }}" target="_blank" 
+             class="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="w-full h-64 object-cover group-hover:opacity-90 transition">
+            <div class="p-4 bg-white">
+              <h3 class="text-lg font-bold text-gray-700 group-hover:text-indigo-600 transition">
+                {{ photo.title }}
+              </h3>
+              {% if photo.description %}
+                <p class="text-gray-500 text-sm mt-2">{{ photo.description|truncatewords:12 }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="col-span-3 text-center bg-white rounded-2xl shadow p-10">
+          <h3 class="text-2xl font-bold mb-3 text-gray-700">هیچ تصویری موجود نیست</h3>
+          <p class="text-gray-500">به زودی تصاویر بیشتری اضافه خواهد شد 🌟</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- دکمه بازگشت -->
+    <div class="text-center mt-16">
+      <a href="{% url 'home' %}" 
+         class="inline-block py-3 px-6 rounded-xl bg-indigo-600 text-white font-bold shadow hover:bg-indigo-700 transition">
+        بازگشت به خانه
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

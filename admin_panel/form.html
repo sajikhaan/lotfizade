@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<section class="py-20 container mx-auto px-6">
+  <h1 class="text-3xl font-bold mb-8 text-yellow-400">{{ title }}</h1>
+
+  <form method="POST" enctype="multipart/form-data" class="space-y-6 bg-black/60 p-8 rounded shadow-md">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="px-6 py-3 bg-yellow-400 text-black rounded hover:bg-yellow-300 transition">ذخیره</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}مدیریت خدمات | ادمین{% endblock %}
+
+{% block content %}
+<section class="min-h-screen p-6 bg-gray-900 text-white">
+  <h1 class="text-3xl font-extrabold mb-6">مدیریت خدمات</h1>
+
+  <a href="{% url 'admin_dashboard:add_service' %}" class="inline-block mb-6 px-4 py-2 bg-green-500 rounded hover:bg-green-600 transition">➕ افزودن خدمت جدید</a>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    {% for service in services %}
+      <div class="bg-gray-800 p-4 rounded-xl shadow flex justify-between items-center hover:shadow-lg transition">
+        <div class="flex items-center space-x-4">
+          <img src="{{ service.cover.url }}" class="w-16 h-16 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-yellow-400">{{ service.title }}</h3>
+            <p class="text-gray-300 text-sm">{{ service.short_description }}</p>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <a href="{% url 'admin_dashboard:edit_service' service.id %}" class="bg-blue-500 px-3 py-1 rounded hover:bg-blue-600 transition">ویرایش</a>
+          <a href="{% url 'admin_dashboard:delete_service' service.id %}" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition">حذف</a>
+        </div>
+      </div>
+    {% empty %}
+      <p class="col-span-2 text-center text-gray-400">هیچ خدمتی وجود ندارد.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

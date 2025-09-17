@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}داشبورد ادمین{% endblock %}
+
+{% block content %}
+<section class="py-10 container mx-auto px-6">
+  <h1 class="text-3xl font-bold text-center mb-10 text-yellow-400">داشبورد ادمین</h1>
+
+  <!-- خدمات -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 text-white">خدمات</h2>
+    <a href="{% url 'admin_panel:add_service' %}" class="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-300 transition mb-4 inline-block">افزودن خدمت</a>
+    <div class="grid md:grid-cols-3 gap-4">
+      {% for service in services %}
+      <div class="p-4 bg-black/60 rounded shadow flex flex-col justify-between">
+        <h3 class="font-bold text-yellow-400">{{ service.title }}</h3>
+        <div class="mt-2 flex justify-between">
+          <a href="{% url 'admin_panel:edit_service' service.id %}" class="text-blue-400 hover:underline">ویرایش</a>
+          <a href="{% url 'admin_panel:delete_service' service.id %}" class="text-red-400 hover:underline">حذف</a>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-gray-400 col-span-3">هیچ خدمتی اضافه نشده است.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- عکس‌ها -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-semibold mb-4 text-white">گالری تصاویر</h2>
+    <a href="{% url 'admin_panel:add_photo' %}" class="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-300 transition mb-4 inline-block">افزودن عکس</a>
+    <div class="grid md:grid-cols-4 gap-4">
+      {% for photo in photos %}
+      <div class="relative">
+        <img src="{{ photo.image.url }}" class="w-full h-48 object-cover rounded shadow">
+        <a href="{% url 'admin_panel:delete_photo' photo.id %}" class="absolute top-2 right-2 text-red-500 font-bold bg-black/50 px-2 rounded hover:bg-black/70">حذف</a>
+      </div>
+      {% empty %}
+      <p class="text-gray-400 col-span-4">هیچ عکسی اضافه نشده است.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- مقالات -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4 text-white">مقالات</h2>
+    <a href="{% url 'admin_panel:add_post' %}" class="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-300 transition mb-4 inline-block">افزودن مقاله</a>
+    <div class="grid md:grid-cols-3 gap-4">
+      {% for post in posts %}
+      <div class="p-4 bg-black/60 rounded shadow flex flex-col justify-between">
+        <h3 class="font-bold text-yellow-400">{{ post.title }}</h3>
+        <div class="mt-2 flex justify-between">
+          <a href="{% url 'admin_panel:edit_post' post.id %}" class="text-blue-400 hover:underline">ویرایش</a>
+          <a href="{% url 'admin_panel:delete_post' post.id %}" class="text-red-400 hover:underline">حذف</a>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-gray-400 col-span-3">هیچ مقاله‌ای اضافه نشده است.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
+{% endblock %}
