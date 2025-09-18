@@ -1,0 +1,42 @@
+{
+  "name": "lotfi_project_full",
+  "version": "1.0.0",
+  "description": "1. نصب پایتون 3.11 یا بالاتر 2. ایجاد محیط مجازی: ```bash python -m venv .venv .venv\\Scripts\\activate ``` 3. نصب وابستگی‌ها: ```bash pip install -r requirements.txt ``` 4. اجرای مایگریشن‌ها: ```bash python manage.py migrate ``` 5. ساخت ادمین: ```bash python manage.py createsuperuser ``` 6. اجرای سرور: ```bash python manage.py runserver ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind:init": "tailwindcss init -p",
+    "build:css": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajikhaan/lotfizade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sajikhaan/lotfizade/issues"
+  },
+  "homepage": "https://github.com/sajikhaan/lotfizade#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.13"
+  },
+  "dependencies": {
+    "baseline-browser-mapping": "^2.8.5",
+    "browserslist": "^4.26.2",
+    "caniuse-lite": "^1.0.30001743",
+    "electron-to-chromium": "^1.5.221",
+    "escalade": "^3.2.0",
+    "fraction.js": "^4.3.7",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.21",
+    "normalize-range": "^0.1.2",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.1.3"
+  }
+}
