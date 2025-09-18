@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     'gallery',
     'contact',
     'blog',
-    'tailwind',
+    # 'tailwind',
     'admin_panel',
     # 'theme',
 ]
