@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: my-django-app   # اسم دلخواه
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn myproject.wsgi:application"
+    plan: free
